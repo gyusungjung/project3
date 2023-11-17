@@ -1,7 +1,7 @@
 {
   "name": "project3",
   "version": "1.0.0",
-  "description": "",
+  "description": "[API명세서](https://docs.google.com/spreadsheets/d/1f8WkKrSYua1fr9TBOu4Kn70jQ-Fqx4TLqHjEOHUpQWc/edit?usp=sharing)",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,16 @@
   "devDependencies": {
     "express": "^4.18.2",
     "jest": "^29.7.0",
+    "sequelize-cli": "^6.6.2",
     "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "mysql2": "^3.6.3",
+    "sequelize": "^6.35.0"
   }
 }

@@ -1,3 +1,7 @@
+##명세서
+
+[API명세서](https://docs.google.com/spreadsheets/d/1f8WkKrSYua1fr9TBOu4Kn70jQ-Fqx4TLqHjEOHUpQWc/edit?usp=sharing)
+
 # 환경변수
 
 - .env 파일에 어떤 환경변수가 추가되어야 하는지 작성합니다.
@@ -50,3 +54,64 @@
 
 - nodemon은 어떤 역할을 하는 패키지이며, 사용했을 때 어떤 점이 달라졌나요?
 - npm을 이용해서 패키지를 설치하는 방법은 크게 일반, 글로벌(`--global, -g`), 개발용(`--save-dev, -D`)으로 3가지가 있습니다. 각각의 차이점을 설명하고, nodemon은 어떤 옵션으로 설치해야 될까요?
+
+  **구조**
+  .
+  ├── .env
+  ├── .gitignore
+  ├── .prettierrc
+  ├── config
+  │   └── config.js //.env파일에서 내용을 불러와 app.js등과 같은곳에서 사용할수 있도록함
+  ├── migrations
+  │   └── 20231113060114-create-user
+  ├── middleware
+  │   └── need-signin.middlware.js
+  └── models
+  │   ├── index.js
+  │   ├── products.model.js
+  │  └── users.js //User모델 정의
+  ├── routers
+  │   ├── auth.router.js //회원가입 라우터코드
+  │   ├── products.router.js
+  │   └── users.router.js
+  ├── seeders //초기에 데이터베이스를 넣는데에 사용함
+  ├── app.js
+  ├── package-lock.json
+  └── package.json
+  **USER**
+  //회원가입
+  post - http://localhost:3000/users
+  {
+  "email": "test@example.com",
+  "nickname": "test",
+  "password": "123456",
+  "confirmPassword": "123456"
+  }
+
+//로그인
+post - http://localhost:3000/users/auth
+
+{
+"email": "test@example.com",
+"password": "123456",
+}
+
+//계정예시
+{
+"userId": 5,
+"email": "test123@example.com",
+"nickname": "test123",
+"password": "123456",
+"updatedAt": "2023-11-16T07:52:25.471Z",
+"createdAt": "2023-11-16T07:52:25.471Z"
+}
+
+//모든 유저조회
+get - http://localhost:3000/users
+
+//사용자조회
+get - http://localhost:3000/users/me
+
+//mySQL user 조회
+USE database_development;
+SELECT \* FROM Users

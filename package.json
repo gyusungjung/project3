@@ -4,6 +4,7 @@
   "description": "[API명세서](https://docs.google.com/spreadsheets/d/1f8WkKrSYua1fr9TBOu4Kn70jQ-Fqx4TLqHjEOHUpQWc/edit?usp=sharing)",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
     "mysql2": "^3.6.3",
+    "nodemon": "^3.0.1",
     "sequelize": "^6.35.0"
   }
 }

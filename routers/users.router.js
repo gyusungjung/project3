@@ -76,15 +76,11 @@ router.post('/auth', async (req, res) => {
     return;
   }
 
-  const token = jwt.sign({ userId: user.userId }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+  const token = jwt.sign({ userId: user.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '12h' });
 
   console.log('Generated Token: ', 'Bearer ', token); // 토큰을 콘솔에 출력
-
-  res
-    .header({
-      token: token,
-    })
-    .send();
+  res.setHeader('Authorization', 'Bearer ' + token);
+  return res.status(200).send({ token });
 });
 
 //모든유저 가져오기
@@ -101,7 +97,7 @@ const authMiddleware = require('../middleware/need-signin.middleware');
 
 router.get('/me', authMiddleware, async (req, res) => {
   const { userId } = res.locals;
-  const user = await User.findOne({ where: { userId } });
+  const user = await User.findOne({ where: { id: userId } });
   if (!user) {
     res.status(400).send({
       errorMessage: '사용자 정보가 없습니다.',

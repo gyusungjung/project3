@@ -13,6 +13,7 @@ module.exports = async (req, res, next) => {
   }
 
   try {
+    console.log(jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET));
     const { userId } = jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET);
     res.locals.userId = userId;
     next();

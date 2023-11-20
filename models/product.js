@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       author: DataTypes.STRING,
       content: DataTypes.TEXT,
-      status: DataTypes.STRING,
+      status: { type: DataTypes.STRING, validate: { isIn: [['FOR_SALE', 'SOLD_OUT']] } },
     },
     {
       sequelize,

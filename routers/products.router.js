@@ -25,7 +25,7 @@ router.post('/', authMiddleware, async (req, res) => {
 });
 
 //상품목록 조회 API
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/', async (req, res) => {
   const products = await Product.findAll({ order: [['createdAt', 'DESC']] });
   res.status(200).json({ products });
 });
@@ -85,7 +85,7 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   }
 
   await Product.destroy({ where: { id } });
-  res.json({ result: 'success', message: '상품을 삭제하였습니다.' });
+  res.status(200).json({ result: 'success', message: '상품을 삭제하였습니다.' });
 });
 
 module.exports = router;

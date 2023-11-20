@@ -6,7 +6,7 @@ const usersRouter = require('./routers/users.router.js');
 const productRouter = require('./routers/products.router.js');
 const authRouter = require('./routers/auth.router.js');
 
-const port = process.env.PORT; //const port = 3000;
+const port = process.env.PORT;
 
 //Sequelize connect
 const { sequelize } = require('./models');
